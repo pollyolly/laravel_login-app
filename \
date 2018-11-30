@@ -1,0 +1,38 @@
+<?php
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+/*Route::get('/', function(){
+    return view('LoginModule/login-view');
+})->name('login');
+*/
+Route::get('/', 'LoginController@show')->name('login');
+
+Route::name('register.')->group(function(){
+
+	Route::get('register-view', function(){
+    	return view('LoginModule/register-view');
+	})->name('view');
+
+	Route::post('register-post', function(){
+		return view('LoginModule/register-view');
+	})->name('post');
+	
+	Route::put('register-put', function(){
+		return view('LoginModule/register-view');
+	})->name('put');	
+});
+
+Route::get('/forgot-password', function(){
+	return view('LoginModule/password-view');
+})->name('forgot-password');
+
